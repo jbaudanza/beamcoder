@@ -563,6 +563,13 @@ void writeFrameExecute(napi_env env, void* data) {
   } else {
     if (c->packet != nullptr) {
       ret = av_write_frame(c->format, c->packet);
+
+      // Added by Jon B.
+      // This will flush the muxer after each new frame. I can't find a way
+      // to trigger this with the beamcoder API.
+      if (ret >= 0) {
+        ret = av_write_frame(c->format, NULL);
+      }
     } else if (c->frame != nullptr) {
       ret = av_write_uncoded_frame(c->format, c->streamIndex, c->frame);
     } else {
