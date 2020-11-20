@@ -35,7 +35,7 @@
   "homepage": "https://github.com/Streampunk/beamcoder#readme",
   "dependencies": {
     "bindings": "^1.5.0",
-    "segfault-handler": "^1.3.0"
+    "segfault-handler": "ddopson/node-segfault-handler#42b7b7d30a370c3ced15e3229103a68cf9739c64"
   },
   "devDependencies": {
     "eslint": "^7.10.0",
