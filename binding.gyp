@@ -28,7 +28,6 @@
             "-lavfilter",
             "-lavformat",
             "-lavutil",
-            "-lpostproc",
             "-lswresample",
             "-lswscale"
           ]

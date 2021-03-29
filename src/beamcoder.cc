@@ -39,7 +39,7 @@ extern "C" {
   #include <libavformat/avformat.h>
   #include <libavutil/avutil.h>
   #include <libavutil/pixdesc.h>
-  #include <libpostproc/postprocess.h>
+  //#include <libpostproc/postprocess.h>
   #include <libswresample/swresample.h>
   #include <libswscale/swscale.h>
 }
@@ -71,8 +71,8 @@ napi_value versions(napi_env env, napi_callback_info info) {
   CHECK_STATUS;
   status = napi_set_named_property(env, result, "avutil", value);
   CHECK_STATUS;
-  status = napi_create_uint32(env, postproc_version(), &value);
-  CHECK_STATUS;
+  //status = napi_create_uint32(env, postproc_version(), &value);
+  //CHECK_STATUS;
   status = napi_set_named_property(env, result, "postproc", value);
   CHECK_STATUS;
   status = napi_create_uint32(env, swresample_version(), &value);
@@ -142,9 +142,9 @@ napi_value versionStrings(napi_env env, napi_callback_info info) {
   status = napi_set_named_property(env, result, "avutil", value);
   CHECK_STATUS;
 
-  sprintf(vstr, "%i.%i.%i", LIBPOSTPROC_VERSION_MAJOR, LIBPOSTPROC_VERSION_MINOR,
-    LIBPOSTPROC_VERSION_MICRO);
-  status = napi_create_string_utf8(env, vstr, NAPI_AUTO_LENGTH, &value);
+  //sprintf(vstr, "%i.%i.%i", LIBPOSTPROC_VERSION_MAJOR, LIBPOSTPROC_VERSION_MINOR,
+  //  LIBPOSTPROC_VERSION_MICRO);
+  //status = napi_create_string_utf8(env, vstr, NAPI_AUTO_LENGTH, &value);
   CHECK_STATUS;
   status = napi_set_named_property(env, result, "postproc", value);
   CHECK_STATUS;
@@ -193,8 +193,8 @@ napi_value configurations(napi_env env, napi_callback_info info) {
   CHECK_STATUS;
   status = napi_set_named_property(env, result, "avutil", value);
   CHECK_STATUS;
-  status = napi_create_string_utf8(env, postproc_configuration(), NAPI_AUTO_LENGTH, &value);
-  CHECK_STATUS;
+//  status = napi_create_string_utf8(env, postproc_configuration(), NAPI_AUTO_LENGTH, &value);
+//  CHECK_STATUS;
   status = napi_set_named_property(env, result, "postproc", value);
   CHECK_STATUS;
   status = napi_create_string_utf8(env, swresample_configuration(), NAPI_AUTO_LENGTH, &value);
@@ -236,8 +236,8 @@ napi_value licenses(napi_env env, napi_callback_info info) {
   CHECK_STATUS;
   status = napi_set_named_property(env, result, "avutil", value);
   CHECK_STATUS;
-  status = napi_create_string_utf8(env, postproc_license(), NAPI_AUTO_LENGTH, &value);
-  CHECK_STATUS;
+  //status = napi_create_string_utf8(env, postproc_license(), NAPI_AUTO_LENGTH, &value);
+  //CHECK_STATUS;
   status = napi_set_named_property(env, result, "postproc", value);
   CHECK_STATUS;
   status = napi_create_string_utf8(env, swresample_license(), NAPI_AUTO_LENGTH, &value);
